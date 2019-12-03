@@ -1,0 +1,236 @@
+<!-- Just a blog template I found online -->
+<% include ../partials/header %>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+.card :hover  {
+    opacity:0.8;
+}
+
+/* dropdown */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right: 0;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+</head>
+<body>
+
+
+  <header class="jumbotron">
+    <h1><span class="glyphicon glyphicon-cutlery align-bottom" aria-hidden="true"></span> All Posts in DooleyEats</h1>
+    
+    <hr>
+    
+    <!-- dropbtn -->
+    <div class="dropdown">
+      <a class="pull-right">
+        <button onclick="myFunction()" class="dropbtn">Sort by</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="/posts/trending">Trending</a>
+          <a href="/posts">Newest</a>
+          <a href="/posts/oldest">Oldest</a>
+          <a href="/posts/likeasc">Likes: High to Low</a>
+          <a href="/posts/likedes">Likes: Low to High</a>
+          <a href="/posts/viewdes">Views: High to Low</a>
+          <a href="/posts/viewasc">Views: Low to High</a>
+        </div>
+      </a>
+      </div>
+      
+      
+      <script>
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+      </script>
+    <form class="form-inline" action="/posts" method="GET">
+      <div class="form-group has-feedback">
+        <label for="search"></label>
+        <input class="form-control" type="search" name="search" placeholder="Search Posts" autocomplete="off" />
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      </div>
+      
+      
+
+
+      
+    </form>
+    
+    
+    <hr>
+    <a class="pull-left" href="/posts/">
+      <span class="glyphicon" aria-hidden="true"></span>
+      View All Posts
+    </a>
+    <a class="pull-right" href="/Posts/new_post">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      Create New Posts
+    </a >
+  </header>
+
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noPost == "") {%>
+      <div class="col-md-12">
+        <h4><%= noPost %></h4>
+      </div>
+    <% } %>
+    <% if (searched == true) {%>
+      <div class="col-md-12">
+        <h3>Search results: <span><%= searchQuery %></span></h3>
+        <% if (numPost <= 1) {%>
+        <h4><%= numPost %> post found in the posts:</h4>
+        <% } else{%>
+          <h4><%= numPost %> posts found in the posts:</h4><% } %>
+      </div>
+    <% } %>
+    <%posts.sort(function (a, b) {
+      if (a.createdAt && b.createdAt){
+        return b.createdAt - a.createdAt;
+      }
+      if (!a.createdAt){
+        return 1;
+      }
+      })%>
+    
+    <% posts.forEach(Post => {%>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card"><a href="/Posts/<%= Post._id %>">
+          <div>
+          <img src="<%= Post.image %>" class="gallery-image" alt="" style="width:100%">
+          <div class="caption">
+            <h4 class="caption"><%= Post.title %></h4>
+          </div>
+          <br>
+            <span class="text-center">By <%= Post.author.username %></span><br>
+            <span class="text-center"><i class="fas fa-heart" style="color:red"></i> <%= Post.likes.length%></span>
+            <span class="text-center"><i class="fas fa-eye" style="color:yellowgreen"></i> <%= Post.view-1 %></span>
+          <br>
+          <span>Date: <%= Post.createdAt.toDateString() %></span>
+          </a >
+        </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% include ../partials/footer %>
