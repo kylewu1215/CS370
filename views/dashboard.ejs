@@ -14,7 +14,7 @@
   
     
 
-ul {
+div.topmenu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -22,7 +22,7 @@ ul {
   background-color: #f5dfc5;
 }
 
-li {
+div.topmenu li {
   float: left;
 }
 
@@ -34,7 +34,7 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+div.topmenu li a:hover {
   background-color: #f1d685;
 }
     
@@ -102,7 +102,7 @@ br {
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
     
-    
+    <div class="topmenu">
     <ul>
       <li><a href="/posts/">All Posts</a></li>
       <li><a href="http://localhost:5000/posts?search=RestaurantReview">Restaurant Review</a></li>
@@ -110,6 +110,7 @@ br {
       <li><a href="http://localhost:5000/posts?search=HangOut">HangOut</a></li>
     </ul>
     <hr>
+  </div>
   <div>
     
     <div class="w3-container w3-padding-32">
@@ -228,6 +229,9 @@ br {
   <hr>
 
   <!-- Social Networks -->
+
+<div class="w3-main w3-content w3-padding" style="max-width:1000px;margin-top:100px">
+    
   <footer class="w3-row-padding w3-padding-12">
     <div class="w3-third">
       <h3>FOLLOW US</h3>
@@ -249,7 +253,9 @@ br {
     </div>
 
     <div class="w3-third">
+      
       <h3>BLOG POSTS</h3>
+      
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
           <img src="https://qiaolin22.github.io/login/static/image/blog-icon.png" class="w3-left w3-margin-right" style="width:50px">
@@ -279,17 +285,6 @@ br {
 </div>
 </div>
 
-
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
 
 </body>
 </html>
