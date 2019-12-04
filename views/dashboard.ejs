@@ -190,7 +190,7 @@ br {
                 <span class="badge label-primary"><i class="fas fa-heart" style="color:red"></i> <%= posts[i+j].likes.length %></span>
                 <span class="badge label-primary"><i class="fas fa-eye" style="color:yellowgreen"></i> <%= posts[i+j].view-1 %></span>
               </div>
-                <em>Submitted By <a href="/users/<%= posts[i].author.id %>"><%= posts[i+j].author.username %></a></em>
+                <em>Submitted By <a href="/users/<%= posts[i+j].author.id %>"><%= posts[i+j].author.username %></a></em>
             <span>Date: <%= posts[i+j].createdAt.toDateString() %></span>
             </div> <br><br><br><br><br><br>
           </div>
