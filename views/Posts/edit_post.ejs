@@ -274,7 +274,7 @@ body {
             </h1>
     </br></br></br>
     <div class="form">
-            <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+            <form action="/posts/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                     <div align="left" class="form-group"><label for="title">Post Categorys:</label>
                        &nbsp &nbsp<%= post.postType %>
