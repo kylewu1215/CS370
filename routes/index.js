@@ -29,7 +29,7 @@ router.get('/show_profile', (req, res) => res.render('show_profile', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    Instagramaccount: req.user.Instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 //Edit profile
 router.get('/edit_profile', (req, res) => res.render('edit_profile', {
@@ -39,7 +39,7 @@ router.get('/edit_profile', (req, res) => res.render('edit_profile', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    Instagramaccount: req.user.Instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //Blog Posts
@@ -50,7 +50,7 @@ router.get('/blog_posts', (req, res) => res.render('blog_posts', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //trending
@@ -61,7 +61,7 @@ router.get('/trending', (req, res) => res.render('trending', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //oldest
@@ -72,7 +72,7 @@ router.get('/oldest', (req, res) => res.render('oldest', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //likeasc
@@ -83,7 +83,7 @@ router.get('/likeasc', (req, res) => res.render('likeasc', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //likedes
@@ -94,7 +94,7 @@ router.get('/likedes', (req, res) => res.render('likedes', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //New_post
@@ -105,7 +105,7 @@ router.get('/forum', (req, res) => res.render('forum', {
     gender: req.user.gender,
     major: req.user.major,
     year: req.user.year,
-    instagramaccount: req.user.instagramaccount
+    facebookaccount: req.user.facebookaccount
 }));
 
 //searching friends
