@@ -118,18 +118,30 @@ br {
       <%posts.sort(function (a, b) {
                   if (a.createdAt && b.createdAt){return b.createdAt - a.createdAt;}
                   if (!a.createdAt){return 1;}})%>
-      <% for (var i = 0; i < 4; i++) { %>
+      <% var i = 0;
+      var num = 0;
+      while (i < posts.length) { %>
       <% if(posts[i].postType == "HangOut") { %>
     
-      <div class="w3-padding-32" >
+      <div>
         <div class="thumbnail card" style="background-color:rgba(196, 236, 247, 0.3)">
         <img style="width:100%">
-        <h3><a href="/posts/<%= posts[i]._id %>" target="_blank" style="left: 50%">        <%= posts[i].title %></a>
+        <h3 style="text-align: left"><a href="/posts/<%= posts[i]._id %>" target="_blank" >&nbsp<%= posts[i].title %></a>
+        <span style="float: right; font-size:16px;"><a href="/users/<%= posts[i].author.id %>" target="_blank" > Posted by: <%= posts[i].author.username %> &nbsp &nbsp</a></span>
         </h3>
-        <p style="left: 50%; justify-content: center;">        <%= posts[i].description.substring(0, 50) %></p>
+        <h3 style="text-align: left; font-size:16px;">&nbsp &nbsp &nbsp<%= posts[i].description.substring(0, 50) %>
+        <span style="float: right; font-size:16px;">Date: <%= posts[i].createdAt.toDateString() %>&nbsp &nbsp</span></p>
       </div>
+      <br>
       </div>
-      <% } %><% } %>
+
+      <% num += 1;
+      } 
+      if(num >= 4){
+        break;
+      }
+      i += 1;
+    } %>
   
   
   
