@@ -16,8 +16,8 @@
     </head>
 
 <body class="text-center">
-  <div class="row mt-5">
-  <div class="col-md-6 m-auto">
+  <div class="row mt-6">
+  <div class="col-md-12 m-auto">
   <div class="card card-body">
       <h1 class="text-center mb-3">
         Register
@@ -27,7 +27,7 @@
         <img class="mb-4" src="https://qiaolin22.github.io/login/static/image/logo.png" alt="" width="172" height="172">    
         <h1 class="h3 mb-3 font-weight-normal">Dooley Eats</h1>
         
-        <div class = "form-group">
+        <div align="left"  class = "form-group">
             <label for="username">Username:</label>
             <input 
               type="text" 
@@ -37,9 +37,9 @@
               required = ""
               value="<%= typeof username != 'undefined' ? username : '' %>"
             />
-        </div>
+        </div><br>
 
-        <div class = "form-group">
+        <div align="left"  class = "form-group">
             <label for="email">Your Emory Email:</label>
             <input 
               type="email" 
@@ -50,9 +50,9 @@
               required title = "Please enter your Emory Email"
               value="<%= typeof email != 'undefined' ? email : '' %>"
             />
-        </div>
+        </div><br>
 
-        <div class = "form-group">
+        <div align="left"  lass = "form-group">
             <label for="password">Password:</label>
             <input 
               type="password"  
@@ -62,10 +62,10 @@
               placeholder="Create password" 
               required title="Password must be 5 to 20 characters"
               value="<%= typeof password != 'undefined' ? password : '' %>"
-            />
-        </div>
+            /> 
+        </div><br>
 
-        <div class = "form-group">
+        <div align="left"  class = "form-group">
             <label for="confirm-password">Confirm Password:</label>
             <input 
               type="password"  
