@@ -1,14 +1,10 @@
 <% include ../partials/header %>
-<div class = "container">
-    <div class = "row">
-    <h1 style = "text-align:center">Add a new comment to <%= post.title %></h1>
-    <div style="width: 40%; margin:25px auto;">
-</div>
+
 <div class="container">
-    <div class="row">
+    
         <h1 style="text-align: center">Edit Your Comment</h1>
         <div style="width: 40%; margin: 25px auto;">
-    </div>
+    
             <form action="/posts/<%= post_id%>/comments/<%= comment._id %>" method="POST">
 
                 <div class = "form-group">
@@ -33,8 +29,9 @@
                 </div>
             </form>
             <!-- <a href="/posts/<%= post_id%>">Back</a> -->
-        </div>
+        
         <button class="btn btn-md btn-primary">
             <a href="/posts//<%= post_id %>">Back</a>
           </button>
+        </div>
 </div>

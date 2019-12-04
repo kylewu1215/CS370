@@ -97,17 +97,20 @@ br {
     <div class="w3-left w3-padding-16"><a href = "register.html" > Register</a></div> -->
     <div class="w3-center w3-padding-16"><img src="https://qiaolin22.github.io/login/static/image/logo.png" alt="Logo" style="width:8%"></div>
   </div>
-</div><br><br><br><br>
+</div><br>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
     
     <div class="topmenu">
     <ul>
-      <li><a href="/posts/">All Posts</a></li>
-      <li><a href="http://localhost:5000/posts?search=RestaurantReview">Restaurant Review</a></li>
-      <li><a href="http://localhost:5000/posts?search=Recipe">Recipe</a></li>
-      <li><a href="http://localhost:5000/posts?search=HangOut">HangOut</a></li>
+      <li><a href="/posts/">View All Posts </a></li>
+      <li><a>|</a></li>
+      <li><a href="http://localhost:5000/posts?search=RestaurantReview">Restaurant Review &nbsp</a></li>
+      <li><a>|</a></li>
+      <li><a href="http://localhost:5000/posts?search=Recipe">Recipe &nbsp</a></li>
+      <li><a>|</a></li>
+      <li><a href="http://localhost:5000/posts?search=HangOut">HangOut &nbsp</a></li>
     </ul>
     <hr>
   </div>
@@ -129,7 +132,7 @@ br {
         <h3 style="text-align: left"><a href="/posts/<%= posts[i]._id %>" target="_blank" >&nbsp<%= posts[i].title %></a>
         <span style="float: right; font-size:16px;"><a href="/users/<%= posts[i].author.id %>" target="_blank" > Posted by: <%= posts[i].author.username %> &nbsp &nbsp</a></span>
         </h3>
-        <h3 style="text-align: left; font-size:16px;">&nbsp &nbsp &nbsp<%= posts[i].description.substring(0, 50) %>
+        <h3 style="text-align: left; font-size:16px;">&nbsp  <%= posts[i].description.substring(0, 50) %>
         <span style="float: right; font-size:16px;">Date: <%= posts[i].createdAt.toDateString() %>&nbsp &nbsp</span></p>
       </div>
       <br>
@@ -181,6 +184,8 @@ br {
               <div class="caption">
                 <h4 class="caption"><%= posts[i+j].title %></h4>
               </div>
+              <h3 style = "font-size: 15px;color: rgb(13, 13, 182)">Tags: <%= posts[i+j].tags %></h3>
+
               <p>
                 <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i+j]._id %>">
                   More Info
@@ -222,6 +227,8 @@ br {
             <div class="caption">
               <h4 class="caption"><%= posts[i+j].title %></h4>
             </div>
+            <h3 style="font-size: 15px;color: rgb(13, 13, 182)">Tags: <%= posts[i+j].tags %></h3>
+
             <p>
               <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i+j]._id %>">
                 More Info
