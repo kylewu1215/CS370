@@ -272,26 +272,20 @@ body {
             <h1 class="text-center mb-3">
               Edit Your Post
             </h1>
+    </br></br></br>
     <div class="form">
-            <form action="/posts/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+
+                    <div align="left" class="form-group"><label for="title">Post Categorys:</label>
+                       &nbsp &nbsp<%= post.postType %>
+                    </div>
                 <div align="left" class="form-group">
-                    </br></br></br></br>
+                    
                     <label for="title">Title</label>
                     <input class="form-control" type="text" name="title" value="<%= post.title %>"
                         autocomplete="off" required />
                     </div>
 
-                    <div align="left" class="form-group">
-                            <label for="postType">Post Category</label>
-                            <select name="postType" >
-                                    <optgroup label="Please Select A Post Category:">
-                                        <option value="<%= post.postType %>" selected disabled hidden><%= post.postType %></option>
-                                        <option id="postType" >RestaurantReview</option>
-                                        <option id="postType" >Recipe</option>
-                                        <option id="postType" >HangOut</option>
-                                    </optgroup>
-                                </select>
-                        </div>   
 
                         
                         <div align="left" class="form-group">
@@ -353,4 +347,8 @@ body {
               }
             }
             </script>
+            </div>
+            </div>
+            <br>
+<div class="card card-body">
     <% include ../partials/footer %>
