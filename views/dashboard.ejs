@@ -165,12 +165,12 @@ br {
             continue;}%>
           <div class="col-md-3 col-sm-6">
             <div class="thumbnail card" style="background-color:rgba(245, 207, 138, 0.3)">
-              <img src="<%= posts[i].image %>" class="gallery-image" alt="" style="width:100%">
+              <img src="<%= posts[i+j].image %>" class="gallery-image" alt="" style="width:100%">
               <div class="caption">
                 <h4 class="caption"><%= posts[i+j].title %></h4>
               </div>
               <p>
-                <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i]._id %>">
+                <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i+j]._id %>">
                   More Info
                 </a >
               </p >
@@ -206,7 +206,7 @@ br {
                     continue;}%>
         <div class="col-md-3 col-sm-6">
           <div class="thumbnail card" style="background-color:rgba(203, 248, 152, 0.3)">
-            <img src="<%= posts[i].image %>" class="gallery-image" alt="" style="width:100%">
+            <img src="<%= posts[i+j].image %>" class="gallery-image" alt="" style="width:100%">
             <div class="caption">
               <h4 class="caption"><%= posts[i+j].title %></h4>
             </div>
