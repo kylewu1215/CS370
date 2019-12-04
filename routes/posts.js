@@ -446,7 +446,7 @@ router.get("/viewdes", (req, res) => {
 
 //CREATE - add new campground to DB
 router.post("/", isAuthenticated, upload.single('image'), function(req, res) {
-  cloudinary.v2. uploader.upload(req.file.path, function(err, result) {
+  cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
     if(err) {
       req.flash('error', err.message);
       return res.redirect('back');
@@ -552,7 +552,7 @@ router.put("/:id", upload.single('image'), function(req, res){
           if (req.file) {
             try {
                 await cloudinary.v2.uploader.destroy(post.imageId);
-                let result = await cloudinary.v2.uploader.upload(req.file.path);
+                var result = await cloudinary.v2.uploader.upload(req.file.path);
                 post.imageId = result.public_id;
                 post.image = result.secure_url;
             } catch (err) {
