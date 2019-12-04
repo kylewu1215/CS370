@@ -21,10 +21,12 @@ element.style {
 
 </style>
 
-  <div class = "container">
-    <div class = "row">
-    <h1 style = "text-align:center">Add a new comment to <%= post.title %></h1>
-    <div style="width: 40%; margin:25px auto;">
+  <div class = "container" >
+    <div class = "row" style="width: 50%; margin:20px auto;">
+    <h1 class="text-center" >Add a new comment to <%= post.title %></h1>
+    </div>
+    <br>
+    <div style="width: 50%; margin:25px auto;">
     <form action="/posts/<%= post._id %>/comments/" method="POST">
         
         <div class = "form-group">
