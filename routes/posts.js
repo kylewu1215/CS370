@@ -453,6 +453,7 @@ router.post("/", isAuthenticated, upload.single('image'), function(req, res) {
     }
     const { title, postType, image, description, tags, location, meetLocation, meetTime} = req.body;
     // add cloudinary url for the image to the campground object under image property
+    
     req.body.image = result.secure_url;
     // add image's public_id to campground object
     req.body.imageId = result.public_id;
@@ -564,6 +565,7 @@ router.put("/:id", upload.single('image'), function(req, res){
           post.description = req.body.description;
           post.tags = req.body.tags;
           post.location = req.body.location;
+          post.meetLocation = req.body.meetLocation;
           post.save();
           req.flash("success","Successfully Updated!");
           res.redirect("/posts/" + post.id);
