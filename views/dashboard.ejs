@@ -110,14 +110,14 @@ br {
       <li><a>|</a></li>
       <li><a href="http://localhost:5000/posts?search=Recipe">Recipe &nbsp</a></li>
       <li><a>|</a></li>
-      <li><a href="http://localhost:5000/posts?search=HangOut">HangOut &nbsp</a></li>
+      <li><a href="http://localhost:5000/posts?search=HangOut">Hang Out &nbsp</a></li>
     </ul>
     <hr>
   </div>
   <div>
     
     <div class="w3-container w3-padding-32">
-      <h2>HangOut</h2>
+      <h2><a href="http://localhost:5000/posts?search=HangOut">Hang Out &nbsp</a></h2>
       <%posts.sort(function (a, b) {
                   if (a.createdAt && b.createdAt){return b.createdAt - a.createdAt;}
                   if (!a.createdAt){return 1;}})%>
@@ -130,9 +130,9 @@ br {
         <div class="thumbnail card" style="background-color:rgba(196, 236, 247, 0.3)">
         <img style="width:100%">
         <h3 style="text-align: left"><a href="/posts/<%= posts[i]._id %>" target="_blank" >&nbsp<%= posts[i].title %></a>
-        <span style="float: right; font-size:16px;"><a href="/users/<%= posts[i].author.id %>" target="_blank" > Posted by: <%= posts[i].author.username %> &nbsp &nbsp</a></span>
+        <span style="float: right; font-size:16px;">Posted by:<a href="/users/<%= posts[i].author.id %>" target="_blank" > <%= posts[i].author.username %> &nbsp &nbsp</a></span>
         </h3>
-        <h3 style="text-align: left; font-size:16px;">&nbsp  <%= posts[i].description.substring(0, 50) %>
+        <h3 style="text-align: left; font-size:16px;">&nbsp  <%= posts[i].description.substring(0, 50) %>...
         <span style="float: right; font-size:16px;">Date: <%= posts[i].createdAt.toDateString() %>&nbsp &nbsp</span></p>
       </div>
       <br>
@@ -184,8 +184,19 @@ br {
               <div class="caption">
                 <h4 class="caption"><%= posts[i+j].title %></h4>
               </div>
-              <h3 style = "font-size: 15px;color: rgb(13, 13, 182)">Tags: <%= posts[i+j].tags %></h3>
-
+              <h3 style = "font-size: 15px;color: rgb(13, 13, 182)">
+              <script>
+                function separatetags(tagstring) {
+                  tagstring = tagstring.split(/\s+/);
+                  return tagstring
+                }
+              </script>
+              <% if (posts[i+j].tags){ %>
+              Tags: <a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[0]%>" class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[0]; %></a>
+                  &nbsp<a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[1]%>" class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[1];  %></a>
+                    &nbsp<a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[2]%>" class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[2];  %></a>
+              <% } %>
+                  </h3>
               <p>
                 <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i+j]._id %>">
                   More Info
@@ -227,8 +238,22 @@ br {
             <div class="caption">
               <h4 class="caption"><%= posts[i+j].title %></h4>
             </div>
-            <h3 style="font-size: 15px;color: rgb(13, 13, 182)">Tags: <%= posts[i+j].tags %></h3>
-
+            <h3 style="font-size: 15px;color: rgb(13, 13, 182)">
+              <script>
+                function separatetags(tagstring) {
+                  tagstring = tagstring.split(/\s+/);
+                  return tagstring
+                }
+              </script>
+              <% if (posts[i+j].tags){ %>
+              Tags: <a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[0]%>"
+                class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[0]; %></a>
+              &nbsp<a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[1]%>"
+                class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[1];  %></a>
+              &nbsp<a href="http://localhost:5000/posts?search=<%= posts[i+j].tags.split(" ")[2]%>"
+                class="w3-tag w3-dark-grey w3-median w3-margin-bottom"><%= posts[i+j].tags.split(" ")[2];  %></a>
+              <% } %>
+            </h3>
             <p>
               <a class="btn btn-primary btn-sm btn-b-mg" href="/Posts/<%= posts[i+j]._id %>">
                 More Info
@@ -256,25 +281,22 @@ br {
       <h3>FOLLOW US</h3>
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
-          <img src="https://qiaolin22.github.io/login/static/image/facebook-icon.svg" alt="Facebook" style="width:10%">
-          <span class="w3-large"><a href="https://Facebook.com" target="_blank">Facebook</a></span><br>
+          <img src="https://qiaolin22.github.io/login/static/image/facebook-icon.svg" alt="Facebook" class="w3-left w3-margin-right" style="width:40px">
+          <span class="w3-large"><a href="https://Facebook.com" target="_blank">Facebook</a></span>
         </li>
         <li class="w3-padding-16">
-          <img src="https://qiaolin22.github.io/login/static/image/Twitter.png" alt="Twitter" style="width:10%">
-          <span class="w3-large"><a href="https://Twitter.com" target="_blank">Twitter</a></span><br>
+          <img src="https://qiaolin22.github.io/login/static/image/Twitter.png" alt="Twitter" class="w3-left w3-margin-right" style="width:40px">
+          <span class="w3-large"><a href="https://Twitter.com" target="_blank">Twitter</a></span>
         </li>
         <li class="w3-padding-16">
-          <img src="https://qiaolin22.github.io/login/static/image/instagram_icon.jpeg" alt="Instagram" style="width:10%">
-          <span class="w3-large"><a href="https://Instagram.com" target="_blank">Instagram</a></span><br>
+          <img src="https://qiaolin22.github.io/login/static/image/instagram_icon.jpeg" alt="Instagram" class="w3-left w3-margin-right" style="width:40px">
+          <span class="w3-large"><a href="https://Instagram.com" target="_blank">Instagram</a></span>
         </li>
       </ul>
       <p>Powered by <a href=/dashboard>Team 0100.0</a></p>
     </div>
-
     <div class="w3-third">
-      
       <h3>BLOG POSTS</h3>
-      
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
           <img src="https://qiaolin22.github.io/login/static/image/blog-icon.png" class="w3-left w3-margin-right" style="width:50px">
@@ -296,8 +318,8 @@ br {
         <a class="w3-tag w3-dark-grey w3-small w3-margin-bottom" href="http://localhost:5000/posts?search=smoothie">smoothie</a> 
       </p>
     </div>
+    <hr>
 
-    
   </footer>
 
 <!-- End page content -->

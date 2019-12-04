@@ -308,14 +308,6 @@ body {
                         <input class="form-control" type="text" name="tags" value="<%= post.tags %>" autocomplete="off" />
                     </div>
 
-                    <div align="left" class="form-group">
-                      <label for="meetTime">Activity start time:</label>
-            
-                        <input type="datetime-local" id="meeting-time"
-                               name="meeting-time" value="2018-06-12T19:30"
-                               min="2019-06-07T00:00" max="2020-06-14T00:00">
-                    </div>
-
                     <% if (post.postType=="RestaurantReview") {%>
                     <div align="left" class="form-group">
                         <label for="tags">Restaurant Location</label>
@@ -325,9 +317,11 @@ body {
 
                     <% if (post.postType=="HangOut") {%>
                         <div align="left" class="form-group">
-                                <label for="tags">Activity start Time</label>
-                                <input class="form-control" type="text" name="meetTime" value="<%= post.meetTime %>" autocomplete="off" />
-                            </div>
+                          <label for="meetTime">Activity start time:</label>
+                      
+                          <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30" min="2019-06-07T00:00"
+                            max="2020-06-14T00:00">
+                        </div>
                             <div align="left" class="form-group">
                                     <label for="tags">Activity Location</label>
                                     <input class="form-control" type="text" name="meetLocation" value="<%= post.meetLocation %>" autocomplete="off" />
