@@ -567,6 +567,14 @@ body {
       </div>
         <hr><br>
       <!-- Comments list -->
+      <%post.comments.sort(function (a, b) {
+        if (a.createdAt && b.createdAt){
+          return b.createdAt - a.createdAt;
+        }
+        if (!a.createdAt){
+          return 1;
+        }
+        })%>
       
       <% for(var i = 0; i < post.comments.length; i++){ %>
           <%  var com = post.comments[i]; %>
