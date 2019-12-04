@@ -352,8 +352,9 @@ body {
         <div align="left" class="form-group">
           <a id = "meetTime" label for="meetTime">Hangout Time:</label>
 
-          <input type="datetime-local" id="meetTime" name="meetTime" value="2019-12-04T10:00"
-            style="font-size:12pt;height:40px;width:100%;" value="<%= typeof tags != 'undefined' ? tags : '' %>" ></a>
+            <input type="datetime-local" id="meeting-time"
+                   name="meeting-time" value="2018-06-12T19:30"
+                   min="2018-06-07T00:00" max="2018-06-14T00:00">
         </div>
 
         <div align="left" class="form-group">

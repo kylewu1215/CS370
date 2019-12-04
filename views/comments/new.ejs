@@ -25,6 +25,7 @@ element.style {
     <div class = "row">
     <h1 style = "text-align:center">Add a new comment to <%= post.title %></h1>
     <div style="width: 40%; margin:25px auto;">
+</div>
     <form action="/posts/<%= post._id %>/comments/" method="POST">
         
         <div class = "form-group">
@@ -49,8 +50,9 @@ element.style {
             <button class="btn btn-success btn-block btn-lg">Submit</button>
         </div>
     </form>
-    <a href="/posts//<%=  post._id %>">Back</a>
     
    </div>
+   <button class="btn btn-md btn-primary">
+    <a href="/posts//<%=  post._id %>">Back</a>
+  </button>
  </div>
-</div>
