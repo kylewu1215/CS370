@@ -446,13 +446,14 @@ router.get("/viewdes", (req, res) => {
 
 //CREATE - add new campground to DB
 router.post("/", isAuthenticated, upload.single('image'), function(req, res) {
-  cloudinary.v2. uploader.upload(req.file.path, function(err, result) {
+  cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
     if(err) {
       req.flash('error', err.message);
       return res.redirect('back');
     }
     const { title, postType, image, description, tags, location, meetLocation, meetTime} = req.body;
     // add cloudinary url for the image to the campground object under image property
+    
     req.body.image = result.secure_url;
     // add image's public_id to campground object
     req.body.imageId = result.public_id;
@@ -552,7 +553,7 @@ router.put("/:id", upload.single('image'), function(req, res){
           if (req.file) {
             try {
                 await cloudinary.v2.uploader.destroy(post.imageId);
-                let result = await cloudinary.v2.uploader.upload(req.file.path);
+                var result = await cloudinary.v2.uploader.upload(req.file.path);
                 post.imageId = result.public_id;
                 post.image = result.secure_url;
             } catch (err) {
@@ -564,6 +565,7 @@ router.put("/:id", upload.single('image'), function(req, res){
           post.description = req.body.description;
           post.tags = req.body.tags;
           post.location = req.body.location;
+          post.meetLocation = req.body.meetLocation;
           post.save();
           req.flash("success","Successfully Updated!");
           res.redirect("/posts/" + post.id);

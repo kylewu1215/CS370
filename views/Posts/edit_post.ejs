@@ -273,7 +273,7 @@ body {
               Edit Your Post
             </h1>
     <div class="form">
-            <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+            <form action="/posts/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div align="left" class="form-group">
                     </br></br></br></br>
                     <label for="title">Title</label>
