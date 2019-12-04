@@ -444,7 +444,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
         <input type="hidden" name="sender-name" class="sender-name" value="{{user.username}}"> -->
         
         
-        <button class="fa fa-user"><a href="https://www.facebook.com<%= user.facebookaccount%>" target="_blank">Add friend</a></button></li>
+        <button class="fa fa-user"><a href="https://www.facebook.com/<%= user.facebookaccount%>" target="_blank">Add friend</a></button></li>
     </form>
 <% }%>
                     <% if (currUser &&( user.id == currUser._id)) {%>
@@ -481,9 +481,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
                             <div class="caption">Year: <%= user.year%></a></div>
                         </p>
                     </p>
-                    <p>
-                            <div class="caption">Facebook account: <%= user.facebookaccount%></a></div>
-                        </p>
+                    
                 </div>
             </div>
             <!-- End of profile section -->
