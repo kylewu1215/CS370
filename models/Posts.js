@@ -25,7 +25,12 @@ var PostSchema = new mongoose.Schema({
     type:String
   },
 
-  image: String, 
+  image: 
+  {
+    type: String,
+    default: "https://kissablezebralipsandotherthings.files.wordpress.com/2015/02/smile.jpg"
+  },
+
   imageId: String,
   
   image_approved : Boolean,
