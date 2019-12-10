@@ -4,7 +4,15 @@ Hi, we are the members of Team 0100.0. This is our Dooley Eats web application i
 
 ### How to compile and use our application: 
 
-# 1. Download the Visual Studio XCode Editor, and in a new terminal type the following:
+# 1. The list of external packages and dependencies we use for our project are located in the package.json file. 
+# To install npm package manager needed to run and execute our project, type the following command in the terminal:
+$ npm install --save npm
+# You will also need to install the set of packages listed under "dependencies" in our package.json file.
+# To do so, type this command in the terminal:
+$ npm install --save NameOfPackage
+# And replace NameOfPackage with the name of the package you wish to install.
+
+# 2. Download the Visual Studio XCode Editor, and in a new terminal type the following:
 $ npm start
 # You can also install the Nodemon package with the following command:
 $ npm install -g nodemon
